@@ -1,0 +1,40 @@
+header {
+  background-color: #4c2676;
+  color: white;
+}
+
+img {
+  width: 100%;
+}
+
+#title {
+  display: block;
+  padding: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+#url {
+  display: block;
+  padding: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+#notes {
+  display: block;
+  padding: 3rem;
+}
+
+label {
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+textarea,
+input {
+  min-width: 100%;
+}
+
+#savebutton {
+  display: block;
+  margin-right: 5rem;
+}
