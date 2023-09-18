@@ -7,16 +7,12 @@ img {
   width: 100%;
 }
 
-#title {
-  display: block;
-  padding: 0.3rem;
-  margin-bottom: 1.5rem;
-}
-
+#title,
 #url {
   display: block;
   padding: 0.3rem;
   margin-bottom: 1.5rem;
+  min-width: 100%;
 }
 
 #notes {
@@ -29,12 +25,19 @@ label {
   padding-bottom: 1rem;
 }
 
-textarea,
-input {
+textarea {
   min-width: 100%;
 }
 
-#savebutton {
-  display: block;
-  margin-right: 5rem;
+.saverow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+#save {
+  color: #fff;
+  background: #4c2676;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }
