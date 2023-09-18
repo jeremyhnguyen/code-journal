@@ -23,7 +23,29 @@
     </header>
     <main class="container column-full">
       <h1>New Entry</h1>
-      <div data-view="entry-form"></div>
+      <div data-view="entry-form">
+        <div class="column half">
+          <img
+            src="images/placeholder-image-square.jpg"
+            alt="Placeholder Image" />
+        </div>
+        <form>
+          <div class="column-half">
+            <label for="title">Title</label>
+            <br />
+            <input id="title" name="title" type="text" />
+            <br />
+            <label for="url">Photo URL</label>
+            <br />
+            <input id="url" name="url" type="url" />
+          </div>
+          <div class="column-full">
+            <label for="notes">Notes</label><br />
+            <textarea id="notes" name="notes" cols="97" rows="8"></textarea>
+            <input type="submit" value="SAVE" />
+          </div>
+        </form>
+      </div>
       <div data-view="entries" class="hidden"></div>
     </main>
     <script src="js/data.js"></script>
