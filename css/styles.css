@@ -1,0 +1,43 @@
+header {
+  background-color: #4c2676;
+  color: white;
+}
+
+img {
+  width: 100%;
+}
+
+#title,
+#url {
+  display: block;
+  padding: 0.3rem;
+  margin-bottom: 1.5rem;
+  min-width: 100%;
+}
+
+#notes {
+  display: block;
+  padding: 3rem;
+}
+
+label {
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+textarea {
+  min-width: 100%;
+}
+
+.saverow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+#save {
+  color: #fff;
+  background: #4c2676;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
