@@ -54,7 +54,51 @@
           </div>
         </form>
       </div>
-      <div data-view="entries" class="hidden"></div>
+      <div data-view="entries" class>
+        <div class="entryrow">
+          <div class="column-half">
+            <h1>Entries</h1>
+          </div>
+          <div id="newcolumn">
+            <button id="new" type="button">NEW</button>
+          </div>
+        </div>
+        <ul id="entries">
+          <li>
+            <div class="column-half">
+              <img
+                src="images/placeholder-image-square.jpg"
+                alt="Placeholder Image" />
+            </div>
+            <div class="column-half">
+              <h4>A newer image</h4>
+              <p>a very nice lake!</p>
+            </div>
+          </li>
+          <li>
+            <div class="column-half">
+              <img
+                src="images/placeholder-image-square.jpg"
+                alt="Placeholder Image" />
+            </div>
+            <div class="column-half">
+              <h4>this is a newer image</h4>
+              <p>A pretty lake!</p>
+            </div>
+          </li>
+          <li>
+            <div class="column-half">
+              <img
+                src="images/placeholder-image-square.jpg"
+                alt="Placeholder Image" />
+            </div>
+            <div class="column-half">
+              <h4>A new image</h4>
+              <p>I guess its not a new image!</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </main>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
