@@ -1,6 +1,6 @@
 header {
   background-color: #4c2676;
-  color: white;
+  color: #fff;
 }
 
 img {
@@ -35,8 +35,7 @@ textarea {
   margin-top: 1rem;
 }
 
-#save,
-#new {
+#save {
   color: #fff;
   background: #4c2676;
   padding: 0.5rem;
@@ -49,9 +48,13 @@ textarea {
   width: 100%;
 }
 
-#new {
+#formanchor {
+  background-color: #4c2676;
+  color: #fff;
   margin-top: 1rem;
-  max-height: 35px;
+  max-height: 34px;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }
 
 .entryrow {
@@ -67,4 +70,17 @@ textarea {
 li {
   display: flex;
   flex-wrap: wrap;
+}
+
+#entryanchor {
+  margin-left: 2rem;
+  font-size: 20pt;
+}
+
+.hidden {
+  display: none;
+}
+
+.align-center {
+  align-items: center;
 }
