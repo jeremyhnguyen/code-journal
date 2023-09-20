@@ -67,12 +67,10 @@ function renderEntry(entry) {
 
 document.addEventListener('DOMContentLoaded', appendDOM);
 
-const $ulEntries = document.querySelector('#entries');
-
 function appendDOM(event) {
   for (let i = 0; i < data.entries.length; i++) {
     const $dataentries = renderEntry(data.entries[i]);
-    $ulEntries.append($dataentries);
+    $ul.append($dataentries);
   }
 
   // Updated DOMContentLoaded Event
