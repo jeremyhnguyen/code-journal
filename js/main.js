@@ -36,6 +36,8 @@ function submitForm(event) {
   renderEntry(inputs);
   const $ul = document.querySelector('#entries');
   $ul.prepend(renderEntry(inputs));
+  viewSwap('entries');
+  togglenoEntries();
 }
 
 // Rendering Entries, Creating DOM Tree
