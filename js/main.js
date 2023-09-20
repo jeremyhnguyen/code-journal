@@ -30,6 +30,12 @@ function submitForm(event) {
   data.entries.unshift(inputs);
   $photo.src = 'images/placeholder-image-square.jpg';
   $form.reset();
+
+  // Updated Submit Event
+
+  renderEntry(inputs);
+  const $ul = document.querySelector('#entries');
+  $ul.prepend(renderEntry(inputs));
 }
 
 // Rendering Entries, Creating DOM Tree
