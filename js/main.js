@@ -33,8 +33,9 @@ function submitForm(event) {
 
   // Updated Submit Event
 
-  renderEntry(inputs);
   const $ul = document.querySelector('#entries');
+
+  renderEntry(inputs);
   $ul.prepend(renderEntry(inputs));
   viewSwap('entries');
   togglenoEntries();
@@ -42,12 +43,15 @@ function submitForm(event) {
 
 // Rendering Entries, Creating DOM Tree
 
+const $title = document.querySelector('#title');
+
 function renderEntry(entry) {
   const $li = document.createElement('li');
   const $columnHalf = document.createElement('div');
   $columnHalf.setAttribute('class', 'column-half');
   const $img = document.createElement('img');
   $img.setAttribute('src', entry.url);
+  $img.setAttribute('alt', $title);
   const $columnHalf2 = document.createElement('div');
   const $h4 = document.createElement('h4');
   $h4.textContent = entry.title;
@@ -64,10 +68,11 @@ function renderEntry(entry) {
 
 document.addEventListener('DOMContentLoaded', appendDOM);
 
+const $ulEntries = document.querySelector('#entries');
+
 function appendDOM(event) {
   for (let i = 0; i < data.entries.length; i++) {
     const $dataentries = renderEntry(data.entries[i]);
-    const $ulEntries = document.querySelector('#entries');
     $ulEntries.append($dataentries);
   }
 
@@ -78,9 +83,9 @@ function appendDOM(event) {
 }
 // Toggle No Entries
 
-function togglenoEntries(toggleText) {
-  const $noEntryText = document.querySelector('.noentrytext');
+const $noEntryText = document.querySelector('.noentrytext');
 
+function togglenoEntries(toggleText) {
   if (data.entries.length > 0) {
     $noEntryText.classList.add('hidden');
   } else {
@@ -90,8 +95,8 @@ function togglenoEntries(toggleText) {
 
 // View Swap
 
-const $formDiv = document.querySelector('#entryformdiv');
-const $entriesDiv = document.querySelector('#entriesdiv');
+const $formDiv = document.querySelector('.entryformdiv');
+const $entriesDiv = document.querySelector('.entriesdiv');
 
 function viewSwap(viewNameShown) {
   if (viewNameShown === 'entry-form') {
@@ -106,7 +111,7 @@ function viewSwap(viewNameShown) {
 
 // Event Handler for viewSwap Entries
 
-const $swapAnchor = document.querySelector('#entryanchor');
+const $swapAnchor = document.querySelector('#entry-anchor');
 
 $swapAnchor.addEventListener('click', function () {
   viewSwap('entries');
@@ -114,7 +119,7 @@ $swapAnchor.addEventListener('click', function () {
 
 // Event Handler for viewSwap Entry-Form
 
-const $swapForm = document.querySelector('#formanchor');
+const $swapForm = document.querySelector('#form-anchor');
 
 $swapForm.addEventListener('click', function () {
   viewSwap('entry-form');
@@ -122,7 +127,7 @@ $swapForm.addEventListener('click', function () {
 
 // Event Handler for viewSwap Home
 
-const $swapHome = document.querySelector('#swaphome');
+const $swapHome = document.querySelector('#swap-home');
 
 $swapHome.addEventListener('click', function () {
   viewSwap('entry-form');

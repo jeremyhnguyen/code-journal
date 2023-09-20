@@ -42,13 +42,13 @@ textarea {
   border-radius: 0.3rem;
 }
 
-#newcolumn {
+#new-column {
   display: flex;
   justify-content: flex-end;
   width: 100%;
 }
 
-#formanchor {
+#form-anchor {
   background-color: #4c2676;
   color: #fff;
   margin-top: 1rem;
@@ -56,6 +56,7 @@ textarea {
   padding: 0.5rem;
   border-radius: 0.3rem;
   font-size: 0.9rem;
+  text-decoration: none;
 }
 
 .entryrow {
@@ -73,17 +74,17 @@ li {
   flex-wrap: wrap;
 }
 
-#entryanchor {
+#entry-anchor {
   margin-left: 2rem;
   font-size: 1.6rem;
+  text-decoration: none;
+  color: #fff;
 }
 
-#swaphome {
+#swap-home {
   font-size: 2.2rem;
-}
-
-.hidden {
-  display: none;
+  text-decoration: none;
+  color: #fff;
 }
 
 .align-center {
