@@ -15,6 +15,6 @@ function stringifyInput(string) {
 }
 
 const getStorage = localStorage.getItem('JS Storage');
-if (getStorage !== null) {
+  if (getStorage !== null) {
   data = JSON.parse(getStorage);
 }

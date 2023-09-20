@@ -1,6 +1,6 @@
 header {
   background-color: #4c2676;
-  color: white;
+  color: #fff;
 }
 
 img {
@@ -40,4 +40,53 @@ textarea {
   background: #4c2676;
   padding: 0.5rem;
   border-radius: 0.3rem;
+}
+
+#new-column {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+#form-anchor {
+  background-color: #4c2676;
+  color: #fff;
+  margin-top: 1rem;
+  max-height: 34px;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.entryrow {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#entries {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#entry-anchor {
+  margin-left: 2rem;
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+#swap-home {
+  font-size: 2.2rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.align-center {
+  align-items: center;
 }
