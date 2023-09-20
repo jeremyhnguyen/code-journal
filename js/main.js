@@ -16,6 +16,8 @@ const $form = document.querySelector('form');
 
 $form.addEventListener('submit', submitForm);
 
+const $ul = document.querySelector('#entries');
+
 function submitForm(event) {
   event.preventDefault();
 
@@ -33,9 +35,6 @@ function submitForm(event) {
 
   // Updated Submit Event
 
-  const $ul = document.querySelector('#entries');
-
-  renderEntry(inputs);
   $ul.prepend(renderEntry(inputs));
   viewSwap('entries');
   togglenoEntries();
