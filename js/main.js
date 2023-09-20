@@ -46,20 +46,24 @@ const $title = document.querySelector('#title');
 
 function renderEntry(entry) {
   const $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', entry.entryId);
   const $columnHalf = document.createElement('div');
   $columnHalf.setAttribute('class', 'column-half');
   const $img = document.createElement('img');
   $img.setAttribute('src', entry.url);
   $img.setAttribute('alt', $title);
   const $columnHalf2 = document.createElement('div');
+  $columnHalf2.setAttribute('class', 'column-half');
   const $h4 = document.createElement('h4');
   $h4.textContent = entry.title;
+  const $faPencilItem = document.createElement('i');
+  $faPencilItem.setAttribute('class', 'fa fa-pencil');
   const $p = document.createElement('p');
   $p.textContent = entry.notes;
 
   $li.append($columnHalf, $columnHalf2);
   $columnHalf.append($img);
-  $columnHalf2.append($h4, $p);
+  $columnHalf2.append($h4, $faPencilItem, $p);
   return $li;
 }
 
@@ -129,3 +133,5 @@ const $swapHome = document.querySelector('#swap-home');
 $swapHome.addEventListener('click', function () {
   viewSwap('entry-form');
 });
+
+// Event Handler for ul
