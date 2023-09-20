@@ -107,3 +107,11 @@ const $swapForm = document.querySelector('#formanchor');
 $swapForm.addEventListener('click', function () {
   viewSwap('entry-form');
 })
+
+// Event Handler for viewSwap Home
+
+const $swapHome = document.querySelector('#swaphome');
+
+$swapHome.addEventListener('click', function () {
+  viewSwap('entry-form');
+})

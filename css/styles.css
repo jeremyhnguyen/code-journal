@@ -55,6 +55,7 @@ textarea {
   max-height: 34px;
   padding: 0.5rem;
   border-radius: 0.3rem;
+  font-size: 0.9rem;
 }
 
 .entryrow {
@@ -74,7 +75,11 @@ li {
 
 #entryanchor {
   margin-left: 2rem;
-  font-size: 20pt;
+  font-size: 1.6rem;
+}
+
+#swaphome {
+  font-size: 2.2rem;
 }
 
 .hidden {
