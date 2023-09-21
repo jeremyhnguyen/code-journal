@@ -98,4 +98,5 @@ h4 {
 .fa-pencil {
   margin-top: 1rem;
   float: right;
+  cursor: pointer;
 }

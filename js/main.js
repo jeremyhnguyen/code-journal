@@ -1,10 +1,19 @@
+const $photoURL = document.querySelector('#url');
+const $photo = document.querySelector('#image');
+const $form = document.querySelector('form');
+const $ul = document.querySelector('#entries');
+const $title = document.querySelector('#title');
+const $h1 = document.querySelector('h1');
+const $formDiv = document.querySelector('.entryformdiv');
+const $entriesDiv = document.querySelector('.entriesdiv');
+const $noEntryText = document.querySelector('.noentrytext');
+const $swapAnchor = document.querySelector('#entry-anchor');
+const $swapForm = document.querySelector('#form-anchor');
+const $swapHome = document.querySelector('#swap-home');
+
 // Photo URL Event
 
-const $photoURL = document.querySelector('#url');
-
 $photoURL.addEventListener('input', photoInput);
-
-const $photo = document.querySelector('#image');
 
 function photoInput(input) {
   $photo.src = $photoURL.value;
@@ -12,11 +21,7 @@ function photoInput(input) {
 
 // Submit Event
 
-const $form = document.querySelector('form');
-
 $form.addEventListener('submit', submitForm);
-
-const $ul = document.querySelector('#entries');
 
 function submitForm(event) {
   event.preventDefault();
@@ -26,7 +31,6 @@ function submitForm(event) {
   inputs.title = $form.elements.title.value;
   inputs.url = $form.elements.url.value;
   inputs.notes = $form.elements.notes.value;
-
   inputs.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.unshift(inputs);
@@ -41,8 +45,6 @@ function submitForm(event) {
 }
 
 // Rendering Entries, Creating DOM Tree
-
-const $title = document.querySelector('#title');
 
 function renderEntry(entry) {
   const $li = document.createElement('li');
@@ -84,8 +86,6 @@ function appendDOM(event) {
 }
 // Toggle No Entries
 
-const $noEntryText = document.querySelector('.noentrytext');
-
 function togglenoEntries(toggleText) {
   if (data.entries.length > 0) {
     $noEntryText.classList.add('hidden');
@@ -95,9 +95,6 @@ function togglenoEntries(toggleText) {
 }
 
 // View Swap
-
-const $formDiv = document.querySelector('.entryformdiv');
-const $entriesDiv = document.querySelector('.entriesdiv');
 
 function viewSwap(viewNameShown) {
   if (viewNameShown === 'entry-form') {
@@ -112,15 +109,11 @@ function viewSwap(viewNameShown) {
 
 // Event Handler for viewSwap Entries
 
-const $swapAnchor = document.querySelector('#entry-anchor');
-
 $swapAnchor.addEventListener('click', function () {
   viewSwap('entries');
 });
 
 // Event Handler for viewSwap Entry-Form
-
-const $swapForm = document.querySelector('#form-anchor');
 
 $swapForm.addEventListener('click', function () {
   viewSwap('entry-form');
@@ -128,10 +121,32 @@ $swapForm.addEventListener('click', function () {
 
 // Event Handler for viewSwap Home
 
-const $swapHome = document.querySelector('#swap-home');
-
 $swapHome.addEventListener('click', function () {
   viewSwap('entry-form');
+  $h1.textContent = 'New Entry';
 });
 
 // Event Handler for ul
+
+$ul.addEventListener('click', clickPencil);
+
+function clickPencil(event) {
+  const $editedEntry = event.target.closest('li').getAttribute('data-entry-id');
+
+  if (event.target.tagName === 'I') {
+    $h1.textContent = 'Edit Entry';
+    viewSwap('entry-form');
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === $editedEntry) {
+        data.editing = data.entries[i];
+
+        $title.value = data.editing.title.value;
+        $form.elements.url.value = data.editing.url;
+        $form.elements.notes.value = data.editing.notes;
+        $photo.src = data.editing.$photoURL.value;
+      }
+    }
+  } else {
+    $h1.textContent = 'New Entry';
+  }
+}
