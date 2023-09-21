@@ -25,6 +25,7 @@ function photoInput(input) {
 $form.addEventListener('submit', submitForm);
 
 function submitForm(event) {
+  event.preventDefault();
   const inputs = {};
 
   inputs.title = $form.elements.title.value;
@@ -32,15 +33,15 @@ function submitForm(event) {
   inputs.notes = $form.elements.notes.value;
   inputs.entryId = data.nextEntryId;
 
+  $photo.src = 'images/placeholder-image-square.jpg';
+  $form.reset();
+
   if (data.editing === null) {
     data.nextEntryId++;
     data.entries.unshift(inputs);
-    $photo.src = 'images/placeholder-image-square.jpg';
-    $form.reset();
     $ul.prepend(renderEntry(inputs));
-    viewSwap('entries');
     togglenoEntries();
-    event.preventDefault();
+    viewSwap('entries');
   } else if (data.editing !== null) {
     inputs.entryId = data.editing.entryId;
 
@@ -48,9 +49,7 @@ function submitForm(event) {
       if (data.entries[i].entryId === data.editing.entryId) {
         data.entries[i] = inputs;
       }
-      renderEntry(inputs);
-      const $li = document.createElement('li');
-      $li.setAttribute('data-entry-id', data.editing.entryId);
+      renderEntry(data.editing);
     }
     $h1.textContent = 'New Entry';
     data.editing = null;
