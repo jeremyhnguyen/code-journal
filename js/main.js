@@ -12,7 +12,7 @@ const $swapAnchor = document.querySelector('#entry-anchor');
 const $swapForm = document.querySelector('#form-anchor');
 const $swapHome = document.querySelector('#swap-home');
 
-// Photo URL Event
+// Event Handler for Photo URL
 
 $photoURL.addEventListener('input', photoInput);
 
@@ -20,29 +20,41 @@ function photoInput(input) {
   $photo.src = $photoURL.value;
 }
 
-// Submit Event
+// Event Handler for Submit
 
 $form.addEventListener('submit', submitForm);
 
 function submitForm(event) {
-  event.preventDefault();
-
   const inputs = {};
 
   inputs.title = $form.elements.title.value;
   inputs.url = $form.elements.url.value;
   inputs.notes = $form.elements.notes.value;
   inputs.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(inputs);
-  $photo.src = 'images/placeholder-image-square.jpg';
-  $form.reset();
 
-  // Updated Submit Event
+  if (data.editing === null) {
+    data.nextEntryId++;
+    data.entries.unshift(inputs);
+    $photo.src = 'images/placeholder-image-square.jpg';
+    $form.reset();
+    $ul.prepend(renderEntry(inputs));
+    viewSwap('entries');
+    togglenoEntries();
+    event.preventDefault();
+  } else if (data.editing !== null) {
+    inputs.entryId = data.editing.entryId;
 
-  $ul.prepend(renderEntry(inputs));
-  viewSwap('entries');
-  togglenoEntries();
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === data.editing.entryId) {
+        data.entries[i] = inputs;
+      }
+      renderEntry(inputs);
+      const $li = document.createElement('li');
+      $li.setAttribute('data-entry-id', data.editing.entryId);
+    }
+    $h1.textContent = 'New Entry';
+    data.editing = null;
+  }
 }
 
 // Rendering Entries, Creating DOM Tree
@@ -73,7 +85,7 @@ function renderEntry(entry) {
   return $li;
 }
 
-// DOMContentLoaded Event
+// DOMContentLoaded Event Handler
 
 document.addEventListener('DOMContentLoaded', appendDOM);
 
@@ -82,9 +94,6 @@ function appendDOM(event) {
     const $dataentries = renderEntry(data.entries[i]);
     $ul.append($dataentries);
   }
-
-  // Updated DOMContentLoaded Event
-
   viewSwap(data.view);
   togglenoEntries();
 }
@@ -154,5 +163,3 @@ function clickPencil(event) {
     }
   }
 }
-
-// query for each of the form inputs and using the values inside of data.entries[i] you would update each of their value properties!
