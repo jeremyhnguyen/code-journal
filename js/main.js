@@ -3,6 +3,7 @@ const $photo = document.querySelector('#image');
 const $form = document.querySelector('form');
 const $ul = document.querySelector('#entries');
 const $title = document.querySelector('#title');
+const $notes = document.querySelector('#notes');
 const $h1 = document.querySelector('h1');
 const $formDiv = document.querySelector('.entryformdiv');
 const $entriesDiv = document.querySelector('.entriesdiv');
@@ -57,6 +58,8 @@ function renderEntry(entry) {
   const $columnHalf2 = document.createElement('div');
   $columnHalf2.setAttribute('class', 'column-half');
   const $h4 = document.createElement('h4');
+  const $titleDiv = document.createElement('div');
+  $titleDiv.setAttribute('class', 'titlediv');
   $h4.textContent = entry.title;
   const $faPencilItem = document.createElement('i');
   $faPencilItem.setAttribute('class', 'fa fa-pencil');
@@ -65,7 +68,8 @@ function renderEntry(entry) {
 
   $li.append($columnHalf, $columnHalf2);
   $columnHalf.append($img);
-  $columnHalf2.append($h4, $faPencilItem, $p);
+  $columnHalf2.append($titleDiv, $p);
+  $titleDiv.append($h4, $faPencilItem);
   return $li;
 }
 
@@ -131,7 +135,9 @@ $swapHome.addEventListener('click', function () {
 $ul.addEventListener('click', clickPencil);
 
 function clickPencil(event) {
-  const $editedEntry = event.target.closest('li').getAttribute('data-entry-id');
+  const $editedEntry = Number(
+    event.target.closest('li').getAttribute('data-entry-id')
+  );
 
   if (event.target.tagName === 'I') {
     $h1.textContent = 'Edit Entry';
@@ -140,13 +146,13 @@ function clickPencil(event) {
       if (data.entries[i].entryId === $editedEntry) {
         data.editing = data.entries[i];
 
-        $title.value = data.editing.title.value;
-        $form.elements.url.value = data.editing.url;
-        $form.elements.notes.value = data.editing.notes;
-        $photo.src = data.editing.$photoURL.value;
+        $title.value = data.editing.title;
+        $photoURL.value = data.editing.url;
+        $notes.value = data.editing.notes;
+        $photo.src = data.editing.url;
       }
     }
-  } else {
-    $h1.textContent = 'New Entry';
   }
 }
+
+// query for each of the form inputs and using the values inside of data.entries[i] you would update each of their value properties!

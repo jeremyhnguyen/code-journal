@@ -17,7 +17,6 @@ img {
 
 #notes {
   display: block;
-  padding: 3rem;
 }
 
 label {
@@ -91,12 +90,16 @@ li {
   align-items: center;
 }
 
+.titlediv {
+  display: flex;
+  justify-content: space-between;
+}
+
 h4 {
   display: inline-block;
 }
 
 .fa-pencil {
   margin-top: 1rem;
-  float: right;
   cursor: pointer;
 }
