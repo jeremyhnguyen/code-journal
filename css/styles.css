@@ -17,7 +17,7 @@ img {
 
 #notes {
   display: block;
-  padding: 3rem;
+  height: 130px;
 }
 
 label {
@@ -89,4 +89,19 @@ li {
 
 .align-center {
   align-items: center;
+}
+
+.titlediv {
+  display: flex;
+  justify-content: space-between;
+}
+
+h4 {
+  display: inline-block;
+}
+
+.fa-pencil {
+  margin-top: 1rem;
+  cursor: pointer;
+  color: #4c2676;
 }
