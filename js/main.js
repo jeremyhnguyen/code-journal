@@ -33,15 +33,10 @@ function submitForm(event) {
   inputs.notes = $form.elements.notes.value;
   inputs.entryId = data.nextEntryId;
 
-  $photo.src = 'images/placeholder-image-square.jpg';
-  $form.reset();
-
   if (data.editing === null) {
     data.nextEntryId++;
     data.entries.unshift(inputs);
     $ul.prepend(renderEntry(inputs));
-    togglenoEntries();
-    viewSwap('entries');
   } else if (data.editing !== null) {
     inputs.entryId = data.editing.entryId;
 
@@ -49,11 +44,19 @@ function submitForm(event) {
       if (data.entries[i].entryId === data.editing.entryId) {
         data.entries[i] = inputs;
       }
-      renderEntry(data.editing);
+    }
+    const $li = document.querySelectorAll('li');
+    for (let x = 0; x < $li.length; x++) {
+      if (data.editing.entryId === Number($li[x].getAttribute('data-entry-id')))
+        $li[x].replaceWith(renderEntry(inputs));
     }
     $h1.textContent = 'New Entry';
     data.editing = null;
   }
+  $photo.src = 'images/placeholder-image-square.jpg';
+  $form.reset();
+  togglenoEntries();
+  viewSwap('entries');
 }
 
 // Rendering Entries, Creating DOM Tree
