@@ -11,7 +11,7 @@ const $noEntryText = document.querySelector('.noentrytext');
 const $swapAnchor = document.querySelector('#entry-anchor');
 const $swapForm = document.querySelector('#form-anchor');
 const $swapHome = document.querySelector('#swap-home');
-
+const $delete = document.querySelector('.delete');
 // Event Handler for Photo URL
 
 $photoURL.addEventListener('input', photoInput);
@@ -126,12 +126,14 @@ function viewSwap(viewNameShown) {
 
 $swapAnchor.addEventListener('click', function () {
   viewSwap('entries');
+  $delete.className = 'hidden';
 });
 
 // Event Handler for viewSwap Entry-Form
 
 $swapForm.addEventListener('click', function () {
   viewSwap('entry-form');
+  $delete.className = 'hidden';
 });
 
 // Event Handler for viewSwap Home
@@ -139,6 +141,7 @@ $swapForm.addEventListener('click', function () {
 $swapHome.addEventListener('click', function () {
   viewSwap('entry-form');
   $h1.textContent = 'New Entry';
+  $delete.className = 'hidden';
 });
 
 // Event Handler for ul
@@ -153,6 +156,7 @@ function clickPencil(event) {
   if (event.target.tagName === 'I') {
     $h1.textContent = 'Edit Entry';
     viewSwap('entry-form');
+    $delete.classList.remove('hidden');
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === $editedEntry) {
         data.editing = data.entries[i];
