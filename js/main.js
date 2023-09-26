@@ -169,3 +169,9 @@ function clickPencil(event) {
     }
   }
 }
+
+// Event Handler for Showing Modal on Delete Entry
+
+// Event Handler for Modal Cancel
+
+// Event Handler for Modal Confirm
