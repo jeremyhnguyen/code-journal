@@ -12,6 +12,9 @@ const $swapAnchor = document.querySelector('#entry-anchor');
 const $swapForm = document.querySelector('#form-anchor');
 const $swapHome = document.querySelector('#swap-home');
 const $delete = document.querySelector('.delete');
+const $modal = document.querySelector('.modal');
+const $cancel = document.querySelector('#cancel');
+
 // Event Handler for Photo URL
 
 $photoURL.addEventListener('input', photoInput);
@@ -172,6 +175,14 @@ function clickPencil(event) {
 
 // Event Handler for Showing Modal on Delete Entry
 
+$delete.onclick = function () {
+  $modal.style.display = 'block';
+};
+
 // Event Handler for Modal Cancel
+
+$cancel.onclick = function () {
+  $modal.style.display = 'none';
+};
 
 // Event Handler for Modal Confirm

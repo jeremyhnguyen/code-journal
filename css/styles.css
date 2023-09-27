@@ -105,3 +105,56 @@ h4 {
   cursor: pointer;
   color: #4c2676;
 }
+
+/* ---WIP--- */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border-radius: 3px;
+  margin: 50% auto;
+  width: 300px;
+  height: 110px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#delete-text {
+  margin-top: 10px;
+}
+
+#cancel-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+#confirm,
+#cancel {
+  border-style: none;
+  margin-bottom: 0.6rem;
+  border-radius: 3px;
+}
+
+#confirm {
+  background-color: #dc2626;
+  color: #fff;
+  margin-left: 4rem;
+}
+
+#cancel {
+  background-color: #b6b6b6;
+  margin-right: 4rem;
+}
