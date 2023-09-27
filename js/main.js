@@ -14,6 +14,7 @@ const $swapHome = document.querySelector('#swap-home');
 const $delete = document.querySelector('.delete');
 const $modal = document.querySelector('.modal');
 const $cancel = document.querySelector('#cancel');
+const $confirm = document.querySelector('#confirm');
 
 // Event Handler for Photo URL
 
@@ -180,9 +181,35 @@ $delete.onclick = function () {
 };
 
 // Event Handler for Modal Cancel
+// $cancel.addEventListener('click')
 
 $cancel.onclick = function () {
   $modal.style.display = 'none';
 };
 
 // Event Handler for Modal Confirm
+
+// $confirm.onclick = function
+
+$confirm.addEventListener('click', clickConfirm);
+
+function clickConfirm(event) {
+  //  remove entries[i] from data.entries // ---!!!---
+  const $li = document.querySelectorAll('li');
+  for (let i = 0; i < $li.length; i++) {
+    if (data.editing.entryId === Number($li[i].getAttribute('data-entry-id')))
+      $ul.removeChild($li[i]);
+    data.entries.splice(i, 1);
+    //  remove li.data-entry-id[i] // ---!!!---
+  }
+  togglenoEntries();
+  $modal.className = 'hidden';
+  viewSwap('entries');
+  $form.reset();
+  data.editing = null;
+}
+
+// text align center noentries
+// text align right  on save column half
+// a delete red
+// margin above the entire row
