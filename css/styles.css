@@ -29,12 +29,6 @@ textarea {
   min-width: 100%;
 }
 
-.saverow {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 1rem;
-}
-
 #save {
   color: #fff;
   background: #4c2676;
@@ -157,4 +151,25 @@ h4 {
 #cancel {
   background-color: #b6b6b6;
   margin-right: 4rem;
+}
+
+.noentrytext {
+  text-align: center;
+}
+
+.save-column {
+  text-align: right;
+  padding: 0 0.75rem;
+  width: 50%;
+  margin-top: 1rem;
+}
+
+.delete-column {
+  padding: 0 0.75rem;
+  width: 50%;
+  margin-top: 2rem;
+}
+
+#del {
+  color: #dc2626;
 }

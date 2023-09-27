@@ -131,6 +131,8 @@ function viewSwap(viewNameShown) {
 $swapAnchor.addEventListener('click', function () {
   viewSwap('entries');
   $delete.className = 'hidden';
+  $form.reset();
+  $photo.src = 'images/placeholder-image-square.jpg';
 });
 
 // Event Handler for viewSwap Entry-Form
@@ -138,6 +140,8 @@ $swapAnchor.addEventListener('click', function () {
 $swapForm.addEventListener('click', function () {
   viewSwap('entry-form');
   $delete.className = 'hidden';
+  $form.reset();
+  $photo.src = 'images/placeholder-image-square.jpg';
 });
 
 // Event Handler for viewSwap Home
@@ -146,6 +150,8 @@ $swapHome.addEventListener('click', function () {
   viewSwap('entry-form');
   $h1.textContent = 'New Entry';
   $delete.className = 'hidden';
+  $form.reset();
+  $photo.src = 'images/placeholder-image-square.jpg';
 });
 
 // Event Handler for ul
@@ -176,40 +182,35 @@ function clickPencil(event) {
 
 // Event Handler for Showing Modal on Delete Entry
 
-$delete.onclick = function () {
+$delete.addEventListener('click', openModal);
+
+function openModal(event) {
   $modal.style.display = 'block';
-};
+}
 
 // Event Handler for Modal Cancel
-// $cancel.addEventListener('click')
 
-$cancel.onclick = function () {
+$cancel.addEventListener('click', cancelDelete);
+
+function cancelDelete(event) {
   $modal.style.display = 'none';
-};
+}
 
 // Event Handler for Modal Confirm
-
-// $confirm.onclick = function
 
 $confirm.addEventListener('click', clickConfirm);
 
 function clickConfirm(event) {
-  //  remove entries[i] from data.entries // ---!!!---
   const $li = document.querySelectorAll('li');
   for (let i = 0; i < $li.length; i++) {
     if (data.editing.entryId === Number($li[i].getAttribute('data-entry-id')))
       $ul.removeChild($li[i]);
     data.entries.splice(i, 1);
-    //  remove li.data-entry-id[i] // ---!!!---
   }
   togglenoEntries();
   $modal.className = 'hidden';
   viewSwap('entries');
   $form.reset();
+  $photo.src = 'images/placeholder-image-square.jpg';
   data.editing = null;
 }
-
-// text align center noentries
-// text align right  on save column half
-// a delete red
-// margin above the entire row
